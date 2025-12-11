@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  hello-world:
+    build: .
+    image: hello-world-app:latest
+    ports:
+      - "8081:8081"
+    environment:
+      - PORT=8081
