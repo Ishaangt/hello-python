@@ -45,6 +45,12 @@ def hello_xml():
     return Response(xml_text, mimetype='application/xml')
 
 
+@app.route('/health', methods=['GET'])
+def health():
+    """Simple health-check endpoint used by Docker HEALTHCHECK."""
+    return jsonify({"status": "ok"}), 200
+
+
 def _get_port_from_env_or_args() -> int:
     """Return port from CLI -p/--port if provided, otherwise from PORT env var, else 8081."""
     parser = argparse.ArgumentParser(add_help=False)
